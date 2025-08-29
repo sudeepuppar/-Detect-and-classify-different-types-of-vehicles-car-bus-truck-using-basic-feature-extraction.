@@ -2,55 +2,85 @@
 This Python project detects and classifies vehicles (bike, car, truck) from a video feed using OpenCV. It applies a bird’s eye view transformation to better track and analyze vehicle motion within a defined Region of Interest (ROI).
 
 
-Features:
+🚗 Vehicle Detection with Bird’s Eye View Perspective
 
- Manual ROI selection via 4-point mouse click
- Perspective transformation to top-down view
- Background subtraction using KNN (with shadow detection disabled)
- Vehicle detection using contour analysis
- Vehicle classification into: bike,car,truck
- 
+## 📸 Features
 
-Requirements:
- Python 3.x
- OpenCV (cv2)
- NumPy
+- Manual ROI selection via 4-point mouse click  
+- Perspective transformation to top-down view  
+- Background subtraction using KNN (with shadow detection disabled)  
+- Vehicle detection using contour analysis  
+- Vehicle classification into:
+  - **Bike**
+  - **Car**
+  - **Truck**
 
- Install dependencies using:
- pip install opencv-python numpy
+---
 
+## 🧰 Requirements
 
-Select ROI:
- Click 4 points on the first frame in the order:
- Top-left
- Top-right
- Bottom-right
- Bottom-left
+- Python 3.x  
+- OpenCV (`cv2`)  
+- NumPy  
+
+### 📦 Install dependencies:
+
+```bash
+pip install opencv-python numpy
+```
+
+---
+
+## 🖱️ Select ROI
+
+Click **4 points** on the first video frame in the order:
+
+1. Top-left  
+2. Top-right  
+3. Bottom-right  
+4. Bottom-left  
 
 These define the area for the perspective transformation.
-View Detection:
- A top-down "bird’s eye view" window with detections
- Original video with the selected ROI marked
- Foreground mask used for motion detection
- Press Esc to exit.
 
-Vehicle Classification Logic
-Vehicles are classified by bounding box area and aspect ratio:
+---
 
- if area > 50000:
+## 🎥 View Detection
+
+- A top-down **bird’s eye view** window with real-time vehicle detection  
+- Original video with the selected ROI highlighted  
+- Foreground mask showing motion-based areas  
+- Press `Esc` to exit the program
+
+---
+
+## 🧠 Vehicle Classification Logic
+
+Vehicles are classified using bounding box **area** and **aspect ratio**:
+
+```python
+if area > 50000:
     return "truck"
- elif area > 7000:
+elif area > 7000:
     return "Car"
- else:
+else:
     return "bike"
+```
 
-Future Improvements:
- Add vehicle tracking with IDs (e.g., using SORT or Deep SORT)
- Improve classification using a trained ML model
- Count vehicles crossing a line
- Export analytics (vehicle count per type, speed, etc..)
+Adjust these thresholds in the `classify_vehicle()` function for better results depending on your video input.
 
+---
 
+## 🔮 Future Improvements
 
+- Add vehicle tracking with unique IDs (e.g., using **SORT** or **Deep SORT**)  
+- Improve classification using a trained **machine learning** or **deep learning** model  
+- Count vehicles crossing a virtual line or zone  
+- Export analytics (e.g., vehicle count per type, estimated speed, timestamps, etc.)
+
+---
+
+## 📄 License
+
+This project is open-source and licensed under the **MIT License**.
 
  

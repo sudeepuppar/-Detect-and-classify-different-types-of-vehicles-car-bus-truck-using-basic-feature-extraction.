@@ -48,7 +48,7 @@ Future Improvements:
  Add vehicle tracking with IDs (e.g., using SORT or Deep SORT)
  Improve classification using a trained ML model
  Count vehicles crossing a line
- Export analytics (vehicle count per type, speed, etc.)
+ Export analytics (vehicle count per type, speed, etc..)
 
 
 
